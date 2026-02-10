@@ -3,30 +3,30 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div class="container white-border">
-            <div class="score-segment white-border">
-                <h3 id="home-title" class="team-name">HOME</h3>
-                <div class="score-box">
+        <div class="container debug-border">
+            <div class="score-segment debug-border">
+                <h3 id="home-title" class="team-name debug-border">HOME</h3>
+                <div class="score-box debug-border">
                     <h2 id="home-el"></h2>
                 </div>
-                <div class = "button-container">
-                    <button onclick="incrementScore(1, 'home')" class="button">+1</button>
-                    <button onclick="incrementScore(2, 'home')" class="button">+2</button>
-                    <button onclick="incrementScore(3, 'home')" class="button">+3</button>
+                <div class = "button-container debug-border">
+                    <button onclick="incrementScore(1, 'home')" class="button-score">+1</button>
+                    <button onclick="incrementScore(2, 'home')" class="button-score">+2</button>
+                    <button onclick="incrementScore(3, 'home')" class="button-score">+3</button>
                 </div>
             </div>
             <div>
-                <button onclick="newGame()">NEW GAME</button>
+                <button onclick="newGame()" class="button-new-game">NEW GAME</button>
             </div>
-            <div class="score-segment white-border">
-                <h3 id="guest-title" class="team-name">GUEST</h3>
-                <div class="score-box">
+            <div class="score-segment debug-border">
+                <h3 id="guest-title" class="team-name debug-border">GUEST</h3>
+                <div class="score-box debug-border">
                     <h2 id="guest-el"></h2>
                 </div>
-                <div>
-                    <button onclick="incrementScore(1, 'guest')" class="button">+1</button>
-                    <button onclick="incrementScore(2, 'guest')" class="button">+2</button>
-                    <button onclick="incrementScore(3, 'guest')" class="button">+3</button>
+                <div class = "button-container debug-border">
+                    <button onclick="incrementScore(1, 'guest')" class="button-score">+1</button>
+                    <button onclick="incrementScore(2, 'guest')" class="button-score">+2</button>
+                    <button onclick="incrementScore(3, 'guest')" class="button-score">+3</button>
                 </div>
             </div>
         </div>
