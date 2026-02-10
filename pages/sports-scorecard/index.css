@@ -59,9 +59,9 @@ body {
 .button-score {
     background-color: transparent;
     border: 1px #9AABD8 solid;
-    padding: 8%;
+    padding: 6%;
     color: #9AABD8;
-    font-size: small;
+    font-size: medium;
     font-family: scoreboard-font;
     border-radius: 10%;
 }
