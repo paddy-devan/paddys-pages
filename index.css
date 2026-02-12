@@ -1,8 +1,39 @@
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 12px;
+    background-color: #f0efeb;
 }
 
 #egg {
     width: 30%;
+}
+
+.page-nav {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #e3e1dc; */
+}
+
+.page-nav li {
+  float: left;
+  border: black solid 1px;
+  background-color: #e3e1dc;
+}
+
+.page-nav li:hover {
+  background-color: darkslategrey;
+}
+
+.page-nav li a {
+  display: block;
+  color: darkslategrey;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.page-nav li a:hover {
+  color: white;
 }
