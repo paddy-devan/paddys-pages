@@ -20,6 +20,8 @@ body {
   float: left;
   border: black solid 1px;
   background-color: #e3e1dc;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .page-nav li:hover {
