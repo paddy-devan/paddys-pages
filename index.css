@@ -13,15 +13,13 @@ body {
   margin: 0px;
   padding: 0;
   overflow: hidden;
-  /* background-color: #e3e1dc; */
 }
 
 .page-nav li {
   float: left;
   border: black solid 1px;
   background-color: #e3e1dc;
-  margin-left: 4px;
-  margin-right: 4px;
+  margin: 2px;
 }
 
 .page-nav li:hover {
