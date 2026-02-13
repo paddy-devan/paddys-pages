@@ -32,3 +32,8 @@ function passwordButton() {
     password_el_1.textContent = pswd1
     password_el_2.textContent = pswd2
 }
+
+function copyPassword(pswd_box) {
+    let pswd = pswd_box === 1 ? password_el_1.textContent : password_el_2.textContent
+    navigator.clipboard.writeText(pswd)
+}

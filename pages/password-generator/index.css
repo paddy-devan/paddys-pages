@@ -52,7 +52,7 @@ button {
 
 }
 
-.container-password-boxes div {
+.container-password-boxes button {
     background-color: var(--background-secondary);
     border-radius: 8px;
     color: var(--lighter-green);
