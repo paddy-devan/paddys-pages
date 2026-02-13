@@ -4,11 +4,22 @@
     </head>
     <body>
         <div id="contents">
+
             <h1 id="line1">Generate a</h1>
             <h1 id="line2">Random Password</h1>
             <h2 id="line3">Never use an insecure password again.</h2>
+
+            <input type="number" id="num-chars" value="10" min="6" max="20" placeholder="10">
+            <label for="num-chars"> Number of characters</label><br>
+            <input type="checkbox" id="ckbx-nums" name="vehicle2" value="Car">
+            <label for="ckbx-num"> Include numbers</label><br>
+            <input type="checkbox" id="ckbx-sym" name="vehicle3" value="Boat">
+            <label for="ckbx-sym"> Include symbols</label><br><br>
+
             <button onclick="passwordButton()">Generate Password</button>
+
             <hr>
+
             <div class="container-password-boxes">
                 <div class="password-box">
                     <p id="password1">‎</p>
@@ -17,6 +28,7 @@
                     <p id="password2">‎</p>
                 </div>
             </div>
+
         </div>
         <script src="index.js"></script>
     </body>

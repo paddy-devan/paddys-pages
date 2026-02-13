@@ -3,6 +3,7 @@
   --background-secondary: #273549;
   --dark-green: #10B981;
   --lighter-green: #55F991;
+  --grey: #D5D4D8;
 }
 
 body {
@@ -24,12 +25,16 @@ body {
 }
 
 #line3 {
-    color: #D5D4D8;
+    color: var(--grey);
+}
+
+label {
+    color: var(--grey);
 }
 
 hr {
     margin: 32px 0px;
-    border: #D5D4D8 1px solid;
+    border: var(--grey) 1px solid;
 }
 
 button {

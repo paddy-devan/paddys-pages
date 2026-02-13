@@ -4,14 +4,13 @@ const nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
 
-const passwordLength = 10
-
 let password_el_1 = document.getElementById('password1')
 let password_el_2 = document.getElementById('password2')
+let num_chars_el = document.getElementById('num-chars')
 
 function generatePassword() {
     let password = ''
-    for (let i = 0; i < passwordLength; i++) {
+    for (let i = 0; i < num_chars_el.value; i++) {
         j = Math.floor(Math.random() * characters.length)
         password += characters[j]
     }
