@@ -1,0 +1,64 @@
+:root {
+  --background-primary: #1F2937;
+  --background-secondary: #273549;
+  --dark-green: #10B981;
+  --lighter-green: #55F991;
+  --grey: #D5D4D8;
+}
+
+body {
+    background-color: var(--background-primary);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#contents {
+    width: 80%;
+    margin: 48px auto;
+}
+
+#line1 {
+    color: white;
+}
+
+#line2 {
+    color: var(--dark-green);
+}
+
+#line3 {
+    color: var(--grey);
+}
+
+label {
+    color: var(--grey);
+}
+
+hr {
+    margin: 32px 0px;
+    border: var(--grey) 1px solid;
+}
+
+button {
+    background-color: var(--dark-green);
+    color: white;
+    border: 0px;
+    border-radius: 4px;
+    padding: 12px 16px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.container-password-boxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-password-boxes button {
+    background-color: var(--background-secondary);
+    border-radius: 8px;
+    color: var(--lighter-green);
+    flex: 0 0 48%;
+    text-align: center;
+}
