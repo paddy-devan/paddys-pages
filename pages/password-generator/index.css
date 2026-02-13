@@ -12,8 +12,7 @@ body {
 
 #contents {
     width: 80%;
-    margin: auto;
-    border: white 2px dotted;
+    margin: 48px auto;
 }
 
 #line1 {
@@ -24,8 +23,13 @@ body {
     color: var(--dark-green);
 }
 
-h2 {
+#line3 {
     color: #D5D4D8;
+}
+
+hr {
+    margin: 32px 0px;
+    border: #D5D4D8 1px solid;
 }
 
 button {
@@ -33,22 +37,20 @@ button {
     color: white;
     border: 0px;
     border-radius: 4px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 12px 16px;
 }
 
 .container-password-boxes {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+
 }
 
 .container-password-boxes div {
     background-color: var(--background-secondary);
     border-radius: 8px;
     color: var(--lighter-green);
-    flex: 0 0 45%;
+    flex: 0 0 48%;
+    text-align: center;
 }
