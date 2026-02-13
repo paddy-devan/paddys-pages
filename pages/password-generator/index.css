@@ -7,14 +7,25 @@
 
 body {
     background-color: var(--background-primary);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-h1 {
+#contents {
+    width: 80%;
+    margin: auto;
+    border: white 2px dotted;
+}
+
+#line1 {
+    color: white;
+}
+
+#line2 {
     color: var(--dark-green);
 }
 
 h2 {
-    color: white;
+    color: #D5D4D8;
 }
 
 button {
@@ -22,16 +33,22 @@ button {
     color: white;
     border: 0px;
     border-radius: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .container-password-boxes {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.password-box {
+.container-password-boxes div {
     background-color: var(--background-secondary);
     border-radius: 8px;
     color: var(--lighter-green);
+    flex: 0 0 45%;
 }
