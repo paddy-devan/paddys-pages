@@ -1,0 +1,11 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0efeb;
+    padding: 48px;
+}
+
+.game-container {
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+}
