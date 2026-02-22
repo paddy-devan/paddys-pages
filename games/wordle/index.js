@@ -8,48 +8,33 @@ const debug_letter = document.getElementById("debug-letter")
 
 debug_word.textContent = secret_word
 
+let currentRow = 0
+
 let guessLetters = []
 
+const gridWidth = 5
+
 let guessGrid = [
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null]
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
 ]
 
 function getCellByCoord(i, j) {
     return document.getElementById((i+1).toString() + (j+1).toString())
 }
 
-function populateGuessGrid() {
-    for (let i=0; i < guessLetters.length; i++) {
-        const row = Math.floor(i / guessGrid[0].length)
-        const col = (i % guessGrid[0].length)
-        guessGrid[row][col] = guessLetters[i]
-    }
-}
-
 function renderBoard() {
-    populateGuessGrid()
     for (let i=0; i < guessGrid.length; i++) {
-        for (let j=0; j < guessGrid[0].length; j++) {
+        for (let j=0; j < gridWidth; j++) {
             const guessVal = guessGrid[i][j]
             const cell = getCellByCoord(i, j)
             cell.textContent = guessVal
         }
     }
-}
-
-addEventListener("keydown", keyStroke)
-
-function keyStroke(k) {
-    const key = k.key
-    if (/[a-z]/.test(key)) {
-        guessLetters.push(key)
-    }
-    renderBoard()
 }
 
 function validateWord(guess, target) {
@@ -64,4 +49,23 @@ function validateWord(guess, target) {
         )
     }
     return output
+}
+
+addEventListener("keydown", keyStroke)
+
+function keyStroke(k) {
+    const key = k.key
+    if (/[a-z]/.test(key)) {
+        guessGrid[currentRow].push(key)
+        if (guessGrid[currentRow].length === gridWidth) {
+            const rowGuess = validateWord(guessGrid[currentRow].join(""), secret_word)
+            for (let i=0; i < gridWidth; i++) {
+                const cell = getCellByCoord(currentRow, i)
+                cell.style.backgroundColor = (rowGuess[i] === 1) ? "green" : (rowGuess[i] === -1) ? "red" : "yellow"
+
+            }
+            currentRow += 1
+        }
+    }
+    renderBoard()
 }
