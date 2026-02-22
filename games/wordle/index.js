@@ -8,25 +8,46 @@ const debug_letter = document.getElementById("debug-letter")
 
 debug_word.textContent = secret_word
 
-let active_row = 1
+let guessLetters = []
 
-let guesses = [
-    ["A", null, "J", null, null],
-    ["H", "E", "L", "L", "O"],
+let guessGrid = [
+    [null, null, null, null, null],
+    [null, null, null, null, null],
     [null, null, null, null, null],
     [null, null, null, null, null],
     [null, null, null, null, null],
     [null, null, null, null, null]
 ]
 
+function getCellByCoord(i, j) {
+    return document.getElementById((i+1).toString() + (j+1).toString())
+}
+
+function populateGuessGrid() {
+    for (let i=0; i < guessLetters.length; i++) {
+        const row = Math.floor(i / guessGrid[0].length)
+        const col = (i % guessGrid[0].length)
+        guessGrid[row][col] = guessLetters[i]
+    }
+}
+
 function renderBoard() {
-    for (let i=0; i < guesses.length; i++) {
-        for (let j=0; j < guesses[0].length; j++) {
-            const guessVal = guesses[i][j]
-            const cell = document.getElementById((i+1).toString() + (j+1).toString())
+    populateGuessGrid()
+    for (let i=0; i < guessGrid.length; i++) {
+        for (let j=0; j < guessGrid[0].length; j++) {
+            const guessVal = guessGrid[i][j]
+            const cell = getCellByCoord(i, j)
             cell.textContent = guessVal
         }
     }
 }
 
-renderBoard()
+addEventListener("keydown", keyStroke)
+
+function keyStroke(k) {
+    const key = k.key
+    if (/[a-z]/.test(key)) {
+        guessLetters.push(key)
+    }
+    renderBoard()
+}
