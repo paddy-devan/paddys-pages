@@ -51,3 +51,17 @@ function keyStroke(k) {
     }
     renderBoard()
 }
+
+function validateWord(guess, target) {
+    let output = []
+    for (let i=0; i < guess.length; i++) {
+        if (target.charAt(i) === guess.charAt(i)) {
+            output.push(1)
+        } else if (target.includes(guess.charAt(i))) {
+            output.push(0)
+        } else (
+            output.push(-1)
+        )
+    }
+    return output
+}
