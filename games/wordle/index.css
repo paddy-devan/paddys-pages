@@ -26,3 +26,24 @@ body{
     border-radius: 4px;
     text-align: center;
 }
+
+#keyboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.keyboard-row div {
+    border: black 1px solid;
+    border-radius: 2px;
+    text-align: center;
+    width: 30px;
+}
