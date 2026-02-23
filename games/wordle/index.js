@@ -6,11 +6,7 @@ const debug_word = document.getElementById("debug-word")
 const debug_coord = document.getElementById("debug-coord")
 const debug_letter = document.getElementById("debug-letter")
 
-debug_word.textContent = secret_word
-
 let currentRow = 0
-
-let guessLetters = []
 
 const gridWidth = 5
 
@@ -51,6 +47,16 @@ function validateWord(guess, target) {
     return output
 }
 
+function rowEvaluate() {
+    const rowGuess = validateWord(guessGrid[currentRow].join(""), secret_word)
+    for (let i=0; i < gridWidth; i++) {
+        const cell = getCellByCoord(currentRow, i)
+        cell.style.backgroundColor = (rowGuess[i] === 1) ? "limegreen" : (rowGuess[i] === -1) ? "crimson" : "orange"
+        cell.style.color = "white"
+    }
+    currentRow += 1
+}
+
 addEventListener("keydown", keyStroke)
 
 function keyStroke(k) {
@@ -58,13 +64,8 @@ function keyStroke(k) {
     if (/[a-z]/.test(key)) {
         guessGrid[currentRow].push(key)
         if (guessGrid[currentRow].length === gridWidth) {
-            const rowGuess = validateWord(guessGrid[currentRow].join(""), secret_word)
-            for (let i=0; i < gridWidth; i++) {
-                const cell = getCellByCoord(currentRow, i)
-                cell.style.backgroundColor = (rowGuess[i] === 1) ? "green" : (rowGuess[i] === -1) ? "red" : "yellow"
-
-            }
-            currentRow += 1
+            
+            rowEvaluate()
         }
     }
     renderBoard()

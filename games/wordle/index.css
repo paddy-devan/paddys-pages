@@ -6,7 +6,7 @@ body{
 
 .game-container {
     border: 1px solid transparent;
-    width: 50%;
+    width: 300px;
     margin: auto;
     display: flex;
     flex-direction: column;
