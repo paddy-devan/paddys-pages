@@ -51,18 +51,20 @@ function validateWord(guess, target) {
 }
 
 function rowEvaluate() {
-    const rowGuess = validateWord(guessGrid[currentRow].join(""), secret_word)
-    for (let i=0; i < gridWidth; i++) {
-        const cell = getCellByCoord(currentRow, i)
-        cell.style.backgroundColor = (rowGuess[i] === 1) ? "limegreen" : (rowGuess[i] === -1) ? "crimson" : "orange"
-        cell.style.color = "white"
+    if (WORDS.includes(guessGrid[currentRow].join(""))) {
+        const rowGuess = validateWord(guessGrid[currentRow].join(""), secret_word)
+        for (let i=0; i < gridWidth; i++) {
+            const cell = getCellByCoord(currentRow, i)
+            cell.style.backgroundColor = (rowGuess[i] === 1) ? "limegreen" : (rowGuess[i] === -1) ? "crimson" : "orange"
+            cell.style.color = "white"
 
-        const guessLetter = guessGrid[currentRow][i]
-        const keyboardKey = document.getElementById(guessLetter)
-        keyboardKey.style.backgroundColor = (rowGuess[i] === 1) ? "limegreen" : (rowGuess[i] === -1) ? "crimson" : "orange"
-        keyboardKey.style.color = "white"
+            const guessLetter = guessGrid[currentRow][i]
+            const keyboardKey = document.getElementById(guessLetter)
+            keyboardKey.style.backgroundColor = (rowGuess[i] === 1) ? "limegreen" : (rowGuess[i] === -1) ? "crimson" : "orange"
+            keyboardKey.style.color = "white"
+        }
+        currentRow += 1
     }
-    currentRow += 1
 }
 
 // create on screen keyboard
@@ -88,10 +90,14 @@ addEventListener("keydown", keyStroke)
 
 function keyStroke(k) {
     const key = k.key.toUpperCase()
-    if (/[A-Z]/.test(key)) {
+    const keyCode = k.keyCode
+    if (keyCode == 8 || keyCode == 46) {
+        console.log('is delete key')
+        guessGrid[currentRow].pop()
+        console.log(guessGrid[currentRow])
+    } else if (/[A-Z]/.test(key)) {
         guessGrid[currentRow].push(key)
         if (guessGrid[currentRow].length === gridWidth) {
-            
             rowEvaluate()
         }
     }
