@@ -5,8 +5,6 @@ const alphabet3 = ["Z", "X", "C", "V", "B", "N", "M"]
 import { WORDS } from "./words.js";
 const secret_word = WORDS[Math.floor(Math.random() * WORDS.length)];
 
-console.log(secret_word)
-
 let currentRow = 0
 
 const gridWidth = 5
