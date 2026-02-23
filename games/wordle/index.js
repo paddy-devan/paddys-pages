@@ -2,12 +2,10 @@ const alphabet1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
 const alphabet2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
 const alphabet3 = ["Z", "X", "C", "V", "B", "N", "M"]
 
-const words = ["hello", "train", "model", "happy", "smile", "stain", "press", "knife", "utter", "shout", "dance"]
-const secret_word = words[Math.floor(Math.random() * words.length)]
+import { WORDS } from "./words.js";
+const secret_word = WORDS[Math.floor(Math.random() * WORDS.length)];
 
-const debug_word = document.getElementById("debug-word")
-const debug_coord = document.getElementById("debug-coord")
-const debug_letter = document.getElementById("debug-letter")
+console.log(secret_word)
 
 let currentRow = 0
 
@@ -76,13 +74,13 @@ const keyboardRow3 = document.getElementById("keyboard-row3")
 keyboardRow3.innerHTML = ""
 
 for (let i=0; i < alphabet1.length; i++) {
-    keyboardRow1.innerHTML += `<div id="${alphabet1[i]}">${alphabet1[i]}<div>`
+    keyboardRow1.innerHTML += `<div id="${alphabet1[i]}">${alphabet1[i]}</div>`
 }
 for (let i=0; i < alphabet2.length; i++) {
-    keyboardRow2.innerHTML += `<div id="${alphabet2[i]}">${alphabet2[i]}<div>`
+    keyboardRow2.innerHTML += `<div id="${alphabet2[i]}">${alphabet2[i]}</div>`
 }
 for (let i=0; i < alphabet3.length; i++) {
-    keyboardRow3.innerHTML += `<div id="${alphabet3[i]}">${alphabet3[i]}<div>`
+    keyboardRow3.innerHTML += `<div id="${alphabet3[i]}">${alphabet3[i]}</div>`
 }
 
 // key listening
