@@ -1,0 +1,52 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0efeb;
+    padding: 48px;
+}
+
+.game-container {
+    border: 1px solid transparent;
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.game-row {
+    display: flex;
+    gap: 2px;
+    border: 1px solid transparent;
+    height: 48px;
+}
+
+.game-row div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 20%;
+    border: black 1px solid;
+    border-radius: 4px;
+}
+
+#keyboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+.keyboard-row div {
+    border: black 1px solid;
+    border-radius: 2px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
