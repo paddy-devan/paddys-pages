@@ -1,4 +1,4 @@
-const alphabet1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
+const alphabet1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "⌫"]
 const alphabet2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
 const alphabet3 = ["Z", "X", "C", "V", "B", "N", "M"]
 
@@ -74,13 +74,13 @@ const keyboardRow3 = document.getElementById("keyboard-row3")
 keyboardRow3.innerHTML = ""
 
 for (let i=0; i < alphabet1.length; i++) {
-    keyboardRow1.innerHTML += `<div id="${alphabet1[i]}">${alphabet1[i]}</div>`
+    keyboardRow1.innerHTML += `<button id="${alphabet1[i]}">${alphabet1[i]}</button>`
 }
 for (let i=0; i < alphabet2.length; i++) {
-    keyboardRow2.innerHTML += `<div id="${alphabet2[i]}">${alphabet2[i]}</div>`
+    keyboardRow2.innerHTML += `<button id="${alphabet2[i]}">${alphabet2[i]}</button>`
 }
 for (let i=0; i < alphabet3.length; i++) {
-    keyboardRow3.innerHTML += `<div id="${alphabet3[i]}">${alphabet3[i]}</div>`
+    keyboardRow3.innerHTML += `<button id="${alphabet3[i]}">${alphabet3[i]}</button>`
 }
 
 // key listening
@@ -89,6 +89,20 @@ addEventListener("keydown", keyStroke)
 function keyStroke(k) {
     const key = k.key.toUpperCase()
     const keyCode = k.keyCode
+    if (keyCode == 8 || keyCode == 46) {
+        console.log('is delete key')
+        guessGrid[currentRow].pop()
+        console.log(guessGrid[currentRow])
+    } else if (/[A-Z]/.test(key)) {
+        guessGrid[currentRow].push(key)
+        if (guessGrid[currentRow].length === gridWidth) {
+            rowEvaluate()
+        }
+    }
+    renderBoard()
+}
+
+function enterKey(k) {
     if (keyCode == 8 || keyCode == 46) {
         console.log('is delete key')
         guessGrid[currentRow].pop()
