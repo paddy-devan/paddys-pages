@@ -70,35 +70,27 @@ const keyboardRow1 = document.getElementById("keyboard-row1")
 const keyboardRow2 = document.getElementById("keyboard-row2")
 const keyboardRow3 = document.getElementById("keyboard-row3")
 
-for (let i=0; i < alphabet1.length; i++) {
-    const char = alphabet1[i]
+function generateButton(char, keyboardRow) {
     const button = document.createElement("button")
     button.id = char
     button.textContent = char
     button.addEventListener("click", function() {
         enterKey(char, -1)
     })
-    keyboardRow1.appendChild(button)
+    keyboardRow.appendChild(button)
+}
+
+for (let i=0; i < alphabet1.length; i++) {
+    const char = alphabet1[i]
+    generateButton(char, keyboardRow1)
 }
 for (let i=0; i < alphabet2.length; i++) {
     const char = alphabet2[i]
-        const button = document.createElement("button")
-    button.id = char
-    button.textContent = char
-    button.addEventListener("click", function() {
-        enterKey(char, -1)
-    })
-    keyboardRow2.appendChild(button)
+    generateButton(char, keyboardRow2)
 }
 for (let i=0; i < alphabet3.length; i++) {
     const char = alphabet3[i]
-        const button = document.createElement("button")
-    button.id = char
-    button.textContent = char
-    button.addEventListener("click", function() {
-        enterKey(char, -1)
-    })
-    keyboardRow3.appendChild(button)
+    generateButton(char, keyboardRow3)
 }
 
 // key listening
