@@ -1,9 +1,9 @@
-const alphabet1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
+import { WORDS } from "./words.js"
+const secret_word = WORDS[Math.floor(Math.random() * WORDS.length)]
+
+const alphabet1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "⌫"]
 const alphabet2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
 const alphabet3 = ["Z", "X", "C", "V", "B", "N", "M"]
-
-import { WORDS } from "./words.js";
-const secret_word = WORDS[Math.floor(Math.random() * WORDS.length)];
 
 let currentRow = 0
 
@@ -67,32 +67,43 @@ function rowEvaluate() {
 
 // create on screen keyboard
 const keyboardRow1 = document.getElementById("keyboard-row1")
-keyboardRow1.innerHTML = ""
 const keyboardRow2 = document.getElementById("keyboard-row2")
-keyboardRow2.innerHTML = ""
 const keyboardRow3 = document.getElementById("keyboard-row3")
-keyboardRow3.innerHTML = ""
+
+function generateButton(char, keyboardRow) {
+    const button = document.createElement("button")
+    button.id = char
+    button.textContent = char
+    button.addEventListener("click", function() {
+        enterKey(char, -1)
+    })
+    keyboardRow.appendChild(button)
+}
 
 for (let i=0; i < alphabet1.length; i++) {
-    keyboardRow1.innerHTML += `<div id="${alphabet1[i]}">${alphabet1[i]}</div>`
+    const char = alphabet1[i]
+    generateButton(char, keyboardRow1)
 }
 for (let i=0; i < alphabet2.length; i++) {
-    keyboardRow2.innerHTML += `<div id="${alphabet2[i]}">${alphabet2[i]}</div>`
+    const char = alphabet2[i]
+    generateButton(char, keyboardRow2)
 }
 for (let i=0; i < alphabet3.length; i++) {
-    keyboardRow3.innerHTML += `<div id="${alphabet3[i]}">${alphabet3[i]}</div>`
+    const char = alphabet3[i]
+    generateButton(char, keyboardRow3)
 }
 
 // key listening
-addEventListener("keydown", keyStroke)
-
-function keyStroke(k) {
+addEventListener("keydown", function(k) {
     const key = k.key.toUpperCase()
     const keyCode = k.keyCode
-    if (keyCode == 8 || keyCode == 46) {
-        console.log('is delete key')
+    enterKey(key, keyCode)
+})
+
+function enterKey (key, keyCode) {
+    console.log(`key entered: ${key}`)
+    if (keyCode == 8 || keyCode == 46 || key == "⌫") {
         guessGrid[currentRow].pop()
-        console.log(guessGrid[currentRow])
     } else if (/[A-Z]/.test(key)) {
         guessGrid[currentRow].push(key)
         if (guessGrid[currentRow].length === gridWidth) {
